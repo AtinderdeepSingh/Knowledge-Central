@@ -35,6 +35,15 @@ if 'Retriever1' in option:
     """
     custom_prompt_template = PromptTemplate(template=custom_prompt, input_variables=["context", "question"])
     retriever = vectordb.as_retriever(search_type="similarity",search_kwargs={"k": 3})
+if 'Retriever4' in option:
+    index_name = "cleanindex"
+    vectordb = AzureSearch(azure_search_endpoint=vector_store_address, azure_search_key=vector_store_password, index_name=index_name, embedding_function=aoai_embeddings.embed_query)
+    custom_prompt = """Try to answer based on given context. If context cannot provide answer, use your pre trained knowledge.
+    CONTEXT: {context}
+    QUESTION: {question}
+    """
+    custom_prompt_template = PromptTemplate(template=custom_prompt, input_variables=["context", "question"])
+    retriever = vectordb.as_retriever(search_type="similarity",search_kwargs={"k": 3})
 else:
     index_name = None
 
