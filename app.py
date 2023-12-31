@@ -10,11 +10,11 @@ import pandas as pd
 
 load_dotenv()
 
-OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY")                                           #OpenAI API key
-vector_store_address = os.environ.get("vector_store_address")                               #Azure AI search endpoint
-vector_store_password = os.environ.get("vector_store_password")                             #Azure AI search key
-account_name = os.environ.get("account_name")                                               #Azure blob storage account name
-constring = os.environ.get("constring")                                                     #Azure blob storage connection string
+OPENAI_API_KEY = st.secrets["OPENAI_API_KEY"]                                           #OpenAI API key
+vector_store_address = st.secrets["vector_store_address"]                               #Azure AI search endpoint
+vector_store_password = st.secrets["vector_store_password"]                             #Azure AI search key
+account_name = st.secrets["account_name"]                                               #Azure blob storage account name
+constring = st.secrets["constring"]                                                     #Azure blob storage connection string
 
 aoai_embeddings = OpenAIEmbeddings()
 llm = ChatOpenAI(temperature=0, model_name='gpt-3.5-turbo')
