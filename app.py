@@ -7,7 +7,6 @@ from langchain.chat_models import ChatOpenAI
 from langchain.prompts import PromptTemplate
 from langchain.chains import RetrievalQA
 import pandas as pd
-from annotated_text import annotated_text
 
 load_dotenv()
 
