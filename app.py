@@ -24,9 +24,7 @@ st.sidebar.title("Select Data Source")
 option = st.sidebar.selectbox(
     'Available Vector Indexes:',
     ('Retriever1', 'Retriever2', 'Retriever3', 'Retriever4'))
-st.sidebar.write("Selected database :", option)
-#st.sidebar.write('Selected Data Source:', option)
-#st.write("Ask me anything about ",option)
+st.sidebar.write("You are querying :", option)
 
 if 'Retriever1' in option:
     index_name = "cleanindex"
