@@ -38,7 +38,7 @@ if 'Retriever1' in option:
 if 'Retriever4' in option:
     index_name = "cleanindex"
     vectordb = AzureSearch(azure_search_endpoint=vector_store_address, azure_search_key=vector_store_password, index_name=index_name, embedding_function=aoai_embeddings.embed_query)
-    custom_prompt = """Try to answer based on given context. If context cannot provide answer, use your pre trained knowledge.
+    custom_prompt = """Use your pre trained knowledge to answer the question.
     CONTEXT: {context}
     QUESTION: {question}
     """
