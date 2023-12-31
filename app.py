@@ -23,12 +23,12 @@ st.title("Knowledge Center 📚")
 st.sidebar.title("Select Data Source")
 option = st.sidebar.selectbox(
     'Available Vector Indexes:',
-    ('Confluence', 'Use Cases', 'Templates', 'Consumer Agreements'))
+    ('Retriever1', 'Retriever2', 'Retriever3', 'Retriever4'))
 st.sidebar.write("Selected database :", option)
 #st.sidebar.write('Selected Data Source:', option)
 #st.write("Ask me anything about ",option)
 
-if 'Confluence' in option:
+if 'Retriever1' in option:
     index_name = "cleanindex"
     vectordb = AzureSearch(azure_search_endpoint=vector_store_address, azure_search_key=vector_store_password, index_name=index_name, embedding_function=aoai_embeddings.embed_query)
     custom_prompt = """Given the following context and a question, generate an answer based on this context only. If the answer is not found in the context, kindly state "I cannot find answer in the given vector store" Don't try to make up an answer.
